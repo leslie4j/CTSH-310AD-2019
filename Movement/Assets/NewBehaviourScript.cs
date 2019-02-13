@@ -52,11 +52,8 @@ public class NewBehaviourScript : MonoBehaviour
 
         //Made the horizontal axis negative to correct the inverse mouse issue.
         transform.Rotate(-v, h, z);
-        if ("Mouse Z" == 0)
-        {
-            transform.Rotate (0,0,-z);
-        }
-
+        transform.Rotate (0,0,-z);
+        transform.rotation = Quaternion.Euler(Mathf.Clamp(transform.rotation.eulerAngles.x, 0f, 360f), transform.rotation.eulerAngles.y, 0);
     }
 }
 
